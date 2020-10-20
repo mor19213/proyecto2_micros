@@ -1,0 +1,23 @@
+Message[305] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 73 : Using default destination of 1 (file).
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 180 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 181 : Using default destination of 1 (file).
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 181 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 183 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 184 : Using default destination of 1 (file).
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 184 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 185 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 186 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 187 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 198 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 203 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 214 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 223 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 234 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 235 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 237 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 240 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 241 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 247 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[203] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 258 : Found opcode in column 1. (RETURN)
+Warning[203] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 266 : Found opcode in column 1. (RETURN)
+Warning[205] C:\USERS\SERVI\MPLABXPROJECTS\PROYECTO_2.X\PROYECTO2.ASM 268 : Found directive in column 1. (END)
