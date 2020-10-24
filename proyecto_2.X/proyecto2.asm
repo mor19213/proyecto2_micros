@@ -41,8 +41,10 @@ PUSH:
 ISR:
     BTFSC   INTCON, T0IF
     CALL    FUE_TMR0
-    BTFSC   PIR1, RCIF
-    BSF	    PORTC, RC3
+    BTFSC   PIR1, TXIF
+    CALL    COSO_TX
+    BTFSC   PIR1, ADIF
+    CALL    COSO_ADC
     
 POP:
     SWAPF   VAR_STATUS, W
@@ -104,11 +106,6 @@ START
    GOTO	    LOOP
    
 LOOP
-    BTFSC   PORTB, RB0
-    BCF	    PORTE, RE2
-    BTFSS   PORTB, RB0
-    BSF	    PORTE, RE2
-   CALL	    DELAY_1
    BSF	    ADCON0, GO	    ;CONVERSION
    BTFSC    ADCON0, GO
    GOTO	    $-1
@@ -145,6 +142,7 @@ CONTADOR
     MOVWF   NIBBLE_H
     GOTO    LOOP
    
+;*******************************************************************************
 DISPLAYS:
     BTFSC   BANDERAS, 0
     GOTO    DISPLAY1
@@ -248,21 +246,5 @@ CONFIG_SERIAL
     BANKSEL PORTA
     RETURN
    
-DELAY_1
-    MOVLW   .250
-    MOVWF   TIEMPO_1
-CONFIG1:
-    CALL    DELAY_2
-    DECFSZ  TIEMPO_1, F
-    GOTO    CONFIG1
-RETURN
-
-DELAY_2
-    MOVLW   .250
-    MOVWF    TIEMPO_2
-CONFIG2:
-    DECFSZ  TIEMPO_2, F
-    GOTO    CONFIG2
-RETURN
    
 END
