@@ -13,7 +13,6 @@
 ;				VARIABLES
 ;****************************************************************************
 GPR_VAR	    UDATA
-RECIBIDO   RES 1
 NIBBLE_H    RES 1
 NIBBLE_L    RES 1
 BANDERAS    RES 1
@@ -21,11 +20,15 @@ W_TEMP	    RES 1
 VAR_STATUS  RES 1
 TIEMPO_1    RES 1
 TIEMPO_2    RES 1
-ENVIAR	    RES 1
 DISPLAY_1   RES 1
 DISPLAY_2   RES 1
 DISPLAY_3   RES 1
 DISPLAY_4   RES 1
+EJE	    RES 1
+ENVIAR_Y    RES 1
+RECIBIDO_Y  RES 1
+ENVIAR_X    RES 1
+RECIBIDO_X  RES 1
    
    
 	    
@@ -67,6 +70,7 @@ FUE_TMR2:
     BTFSC   PIR1, TXIF
     CALL    COSO_TX
     BCF	    PIR1, TMR2IF
+    ;BSF	    PORTD, RD2
     RETURN
    
 FUE_TMR0:
@@ -74,23 +78,59 @@ FUE_TMR0:
     MOVWF   TMR0
     CALL    DISPLAYS
     BCF	    INTCON, T0IF 
+    ;BSF	    PORTD, RD3
     RETURN
 
 COSO_ADC:
-   BCF	    PIR1, ADIF	    ;BANDERA TERMINAR CONVERSION
+   BTFSC    EJE, 0
+   GOTO	    EJE_Y
+   EJE_X
    MOVFW    ADRESH
-   MOVWF    ENVIAR	    ;VALOR DE ADRESH A VARIABLE ENVIAR
-   BSF	    ADCON0, 1
+   MOVWF    ENVIAR_X	    ;VALOR DE ADRESH A VARIABLE ENVIAR
+   BSF	    EJE, 0
+   MOVLW    B'10000011'
+   MOVWF    ADCON0
+   CALL	    DELAY_2
+   GOTO	    TERMINAR
+   
+   EJE_Y 
+   MOVFW    ADRESH
+   MOVWF    ENVIAR_Y
+   BCF	    EJE, 0
+   MOVLW    B'10000111'
+   MOVWF    ADCON0
+   CALL	    DELAY_2
+   
+   TERMINAR
+   ;BSF	    ADCON0, 1
+   BCF	    PIR1, ADIF	    ;BANDERA TERMINAR CONVERSION
    RETURN
    
 COSO_TX:
-    MOVFW   ENVIAR
+    BTFSC   EJE, 0
+    GOTO    ENVIAR_EJEY
+    ENVIAR_EJEX
+    MOVFW   ENVIAR_X
+    MOVWF   TXREG
+    RETURN
+   
+    ENVIAR_EJEY
+    MOVFW   ENVIAR_Y
     MOVWF   TXREG
     RETURN
     
 COSO_RX:
+    BTFSC   EJE, 0
+    GOTO    RECIBIDOS_Y
+    
+    RECIIDO_X
     MOVFW   RCREG
-    MOVWF   PORTD
+    MOVWF   RECIBIDO_X
+    RETURN
+    
+    RECIBIDOS_Y
+    MOVFW   RCREG
+    MOVWF   RECIBIDO_Y
     RETURN
 ;				TABLA
 ;******************************************************************************* 
@@ -133,14 +173,15 @@ START
    GOTO	    LOOP
    
 LOOP:
-    CLRF    DISPLAY_1
-    CLRF    DISPLAY_2
-    MOVFW   PORTD
-    ANDLW   B'00001111'
-    MOVWF   DISPLAY_1
-    SWAPF   PORTD, W
-    ANDLW   B'00001111'
+    MOVFW   RECIBIDO_Y
+    MOVWF   PORTD
+    CALL    DELAY_1
+    BSF	    ADCON0, GO
+    ;SEPARAR NIBBLES
+    MOVFW   RECIBIDO_X
     MOVWF   DISPLAY_2
+    SWAPF   RECIBIDO_X, W
+    MOVWF   DISPLAY_1
     GOTO    LOOP
    
 ;*******************************************************************************
@@ -168,6 +209,9 @@ DISPLAY2
     CLRF    BANDERAS
     BSF	    BANDERAS, 0
     RETURN
+    
+    
+
 
 ;				CONFIGURACIONES
 ;*******************************************************************************
@@ -176,6 +220,7 @@ CONFIG_IO
    BANKSEL  ANSEL
    CLRF	    ANSEL
    BSF	    ANSEL, 0
+   BSF	    ANSEL, 1
    BANKSEL  TRISA
    CLRF	    TRISA
    COMF	    TRISA
@@ -187,6 +232,9 @@ CONFIG_IO
    CLRF	    PORTB
    CLRF	    PORTE
    CLRF	    PORTD
+   CLRF	    ENVIAR_Y
+   
+   CLRF	    EJE
    RETURN
    
 CONFIG_OSC 
@@ -207,7 +255,7 @@ CONFIG_ADC:
 CONFIG_TMR			    ; 2 mS PARA DISPLAYS
     BANKSEL OPTION_REG
     CLRWDT
-    MOVLW   b'01010111'
+    MOVLW   b'11010111'
     MOVWF   OPTION_REG			    ; 1 SEGUNDO PARA LEDS
     BANKSEL PORTA
     MOVLW   .255
@@ -221,7 +269,7 @@ CONFIG_INTERRUPT:
     BSF	    PIE1, TMR1IE
     BSF	    PIE1, TMR2IE
     BSF	    PIE1, RCIE
-    BSF	    PIE1, TXIE
+    ;BSF	    PIE1, TXIE
     BSF	    INTCON, T0IE
     BSF	    INTCON, PEIE
     
@@ -250,6 +298,39 @@ CONFIG_SERIAL
     BANKSEL TXSTA
     BSF	    TXSTA, TXEN
     BANKSEL PORTA
+    RETURN
+    
+    CONFIG_SERIALSSS
+    BANKSEL TXSTA
+    BCF	    TXSTA, SYNC	    ; PARA LOGRAR UN BAUD DE 300 CON UN FOSC DE 4MHz
+    BSF	    TXSTA, BRGH	    ; PARA LOGRAR UN BAUD DE 300 CON UN FOSC DE 4MHz
+
+    BANKSEL ANSEL
+    BSF	    BAUDCTL, BRG16  ; PARA LOGRAR UN BAUD DE 300 CON UN FOSC DE 4MHz
+    
+    BANKSEL TRISA
+    MOVLW   0x40
+    MOVWF   SPBRG	    ; PARA LOGRAR UN BAUD DE 300 CON UN FOSC DE 4MHz
+    MOVLW   0x03
+    MOVWF   SPBRGH
+
+    RETURN
+    
+    DELAY_1
+    MOVLW   .250
+    MOVWF   TIEMPO_1
+    CONFIG1:
+    CALL    DELAY_2
+    DECFSZ  TIEMPO_1, F
+    GOTO    CONFIG1
+    RETURN
+
+    DELAY_2
+    MOVLW   .250
+    MOVWF    TIEMPO_2
+    CONFIG2:
+    DECFSZ  TIEMPO_2, F
+    GOTO    CONFIG2
     RETURN
 
 END
