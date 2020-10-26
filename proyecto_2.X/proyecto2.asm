@@ -316,15 +316,15 @@ CONFIG_INTERRUPT:
     BSF	    INTCON, T0IE
     BSF	    INTCON, PEIE
     
-    MOVLW   .196
+    MOVLW   .20
     MOVWF   PR2
     
     BANKSEL PORTA
     BSF	    INTCON, GIE
     BCF	    INTCON, T0IF
     RETURN
-    
-CONFIG_SERIAL
+  
+CONFIG_SERIALS
     BANKSEL TXSTA
     BCF	    TXSTA, SYNC
     BSF	    TXSTA, TXEN
@@ -343,7 +343,8 @@ CONFIG_SERIAL
     BSF	    RCSTA, CREN
     BANKSEL PORTA
     RETURN
-    
+
+
     
     DELAY_1
     MOVLW   .250
