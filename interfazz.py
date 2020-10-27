@@ -1,10 +1,12 @@
 from dibujoo import *
 from PyQt5 import QtWidgets
 from PyQt5.QtGui import QPainter, QPen, QPixmap, QColor
-import threading
 import serial
-import sys
+import threading
 import puerto_serial as ps
+import sys
+x =80
+y =80
 
 
 class dibujito (QtWidgets.QMainWindow, Ui_MainWindow):
@@ -46,7 +48,35 @@ class dibujito (QtWidgets.QMainWindow, Ui_MainWindow):
         self.painter.eraseRect(0,0,700,700)
 
 def union_puntos ():
-    pass
+    global puntox,puntoy,ventanamain
+    ser = serial.Serial(port="COM3",baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS, timeout=0)
+    
+    while (1) :
+        punto = ps.recibir(ser).split(',')
+        puntoy = 5*int(punto[0])//13
+        puntox = 5*int(punto[1])//13
+        try :
+            suma_x=0
+            suma_y=0
+            
+            if puntox >=50:
+                suma_x=1*(puntox-50)
+            elif puntox <=40:
+                suma_x=-1*(40-puntox)
+            else:
+                suma_x=0
+                
+            if puntoy >=50:
+                suma_y=1*(puntoy-50)
+            elif puntoy <=40:
+                suma_y=-1*(40-puntoy)
+            else:
+                suma_y=0
+
+            ps.enviar(ser, str(99*x//700), str(99*y//700))
+            ventanamain.paint(suma_x,suma_y)
+        except:
+            print('error puntos')
 
 aplication = QtWidgets.QApplication([])
 ventanamain=dibujito()
