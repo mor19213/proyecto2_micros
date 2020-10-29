@@ -51,11 +51,11 @@ def union_puntos ():
     global puntox,puntoy,ventanamain
     ser = serial.Serial(port="COM3",baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS, timeout=0)
     
-    while (1) :
-        punto = ps.recibir(ser).split(',')
-        puntoy = 5*int(punto[0])//13
-        puntox = 5*int(punto[1])//13
+    while (1) :       
         try :
+            punto = ps.recibir(ser)
+            puntoy = 5*(punto[1])//13
+            puntox = 5*(punto[0])//13
             suma_x=0
             suma_y=0
             
@@ -69,15 +69,17 @@ def union_puntos ():
             if puntoy >=50:
                 suma_y=1*(puntoy-50)
             elif puntoy <=40:
+                
                 suma_y=-1*(40-puntoy)
             else:
                 suma_y=0
 
             ps.enviar(ser, str(99*x//700), str(99*y//700))
             ventanamain.paint(suma_x,suma_y)
+            print(99*x//700,99*y//700)
         except:
-            print('error puntos')
-
+            pass
+        
 aplication = QtWidgets.QApplication([])
 ventanamain=dibujito()
 ventanamain.show()

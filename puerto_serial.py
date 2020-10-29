@@ -3,29 +3,43 @@ import sys
 
 def enviar(coso, x, y):
     coso.flushOutput()
+    var1 = hex(ord('0'))[2:]
+    var2 = hex(ord(x[0]))[2:]
     try:
-        coso.write(bytes.fromhex(x)) 
-        coso.write(bytes.fromhex(y))
-        return
+        variable = x[1]
+        x1 = hex(ord(x[0]))[2:]
+        x2 = hex(ord(x[1]))[2:]
+        coso.write(bytes.fromhex(x1))
+        coso.write(bytes.fromhex(x2))
     except:
-        coso.write(bytes.fromhex('00'))
-        coso.write(bytes.fromhex('00'))
-        return
+        coso.write(bytes.fromhex(var1))
+        coso.write(bytes.fromhex(var2))
+    coso.write(bytes.fromhex('2C'))
+    try: 
+        variable = y[1]
+        y1 = hex(ord(y[0]))[2:]
+        y2 = hex(ord(y[1]))[2:]
+        coso.write(bytes.fromhex(y1))
+        coso.write(bytes.fromhex(y2))
+    except:        
+        coso.write(bytes.fromhex(var1))
+        coso.write(bytes.fromhex(var2))
+    coso.write(bytes.fromhex('0A'))
+    return
 
 def recibir(coso):
-    enviado = ''
-    junto = []
     coso.flushInput()
     coso.flushOutput()
     try:
         coso.readline()
-        for i in range(4):
-            dato = coso.read()
-            junto.append(dato)
-        eje_x = str(int(ord(junto[0])))
-        eje_y = str(int(ord(junto[2])))
-        enviado = eje_x + ',' + eje_y
-        return enviado
+        recibido = str(coso.readline()).split(',')
+        recibido[0] = int(recibido[0][2:], 16)
+        recibido[1] = int(recibido[1][:2], 16)
+        return recibido
     except:
-        enviado = '00,00'
-        return  enviado
+        pass
+'''
+ser = serial.Serial(port="COM3",baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS, timeout=0)
+while 1:
+    print(recibir(ser))
+'''
