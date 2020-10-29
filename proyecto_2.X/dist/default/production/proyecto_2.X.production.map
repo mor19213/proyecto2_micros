@@ -1,16 +1,16 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Sun Oct 25 22:23:30 2020
+Linker Map File - Created Wed Oct 28 20:44:00 2020
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                  RES_VECT       code   0x000000    program   0x000002
                    .cinit    romdata   0x000001    program   0x000004
-                 ISR_VECT       code   0x000004    program   0x0000bc
-                MAIN_PROG       code   0x000062    program   0x00013c
+                 ISR_VECT       code   0x000004    program   0x000160
+                MAIN_PROG       code   0x0000b4    program   0x00013e
 .config_2007_BUILD/DEFAULT/PRODUCTION/PROYECT       code   0x002007    program   0x000002
 .config_2008_BUILD/DEFAULT/PRODUCTION/PROYECT       code   0x002008    program   0x000002
-                  GPR_VAR      udata   0x000020       data   0x000010
+                  GPR_VAR      udata   0x000020       data   0x00001e
 
 
 
@@ -18,66 +18,89 @@ Linker Map File - Created Sun Oct 25 22:23:30 2020
                                Start         End      
                            ---------   ---------      
                             0x000000    0x000002      
-                            0x000004    0x0000ff      
+                            0x000004    0x000152      
                             0x002007    0x002008      
-            257 out of 8455 program addresses used, program memory utilization is 3%
+            340 out of 8455 program addresses used, program memory utilization is 4%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                  CONFIG1   0x0000f7    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                  CONFIG2   0x0000fd    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-         CONFIGURACION_RX   0x0000ef    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-               CONFIG_ADC   0x0000a8    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-         CONFIG_INTERRUPT   0x0000ba    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                CONFIG_IO   0x00008e    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-               CONFIG_OSC   0x0000a3    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-            CONFIG_SERIAL   0x0000df    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-       CONFIG_SERIALSSSSS   0x0000c9    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-               CONFIG_TMR   0x0000b0    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                     COMA   0x000072    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                  CONFIG1   0x00014a    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                  CONFIG2   0x000150    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               CONFIG_ADC   0x000111    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+         CONFIG_INTERRUPT   0x000123    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                CONFIG_IO   0x0000e3    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               CONFIG_OSC   0x00010c    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+            CONFIG_SERIAL   0x000132    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               CONFIG_TMR   0x000119    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  COSO_ADC   0x00001e    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                  COSO_RX   0x000045    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                  COSO_TX   0x00002d    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                  DELAY_1   0x0000f5    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                  DELAY_2   0x0000fb    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                 DISPLAY1   0x000078    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                 DISPLAY2   0x000083    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                 DISPLAYS   0x000074    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                  COSO_RX   0x000064    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                  COSO_TX   0x00002e    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                  DELAY_1   0x000148    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                  DELAY_2   0x00014e    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                 DISPLAY1   0x0000cd    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                 DISPLAY2   0x0000d8    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                 DISPLAYS   0x0000c9    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                     EJE_X   0x000020    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                     EJE_Y   0x000026    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-              ENVIAR_COMA   0x000035    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-              ENVIAR_EJEX   0x000031    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-              ENVIAR_EJEY   0x00003a    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-             ENVIAR_ENTER   0x000040    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                    ENTER   0x000086    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              ENVIAR_COMA   0x000045    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              ENVIAR_EJEX   0x000032    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              ENVIAR_EJEY   0x00004a    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+             ENVIAR_ENTER   0x00005f    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                ENVIAR_X1   0x00003c    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                ENVIAR_X2   0x000040    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                ENVIAR_Y1   0x000056    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                ENVIAR_Y2   0x00005a    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  FUE_TMR0   0x000019    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  FUE_TMR2   0x000015    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                       ISR   0x000008    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                     LOOP   0x000069    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                     LOOP   0x0000bb    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                       POP   0x000010    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                      PUSH   0x000004    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-              RECIBIDOS_Y   0x00004b    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                RECIIDO_X   0x000047    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                    START   0x000062    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                    TABLA   0x00004f    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              RECIBIDOS_Y   0x00007a    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               RECIBIDO_X   0x000066    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      RX1   0x000068    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      RX2   0x00006c    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      RY1   0x00007c    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      RY2   0x000080    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                    START   0x0000b4    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                    TABLA   0x0000a1    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              TABLA_ASCII   0x00008e    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  TERMINAR   0x00002b    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  BANDERAS   0x000022       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                DISPLAYX1   0x00003a       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                DISPLAYX2   0x00003b       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                DISPLAYY1   0x00003c       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                DISPLAYY2   0x00003d       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                 DISPLAY_1   0x000027       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                 DISPLAY_2   0x000028       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                 DISPLAY_3   0x000029       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                 DISPLAY_4   0x00002a       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                       EJE   0x00002b       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                 ENVIAR_X   0x00002e       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                 ENVIAR_X   0x00002f       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  ENVIAR_Y   0x00002c       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  NIBBLE_H   0x000020       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  NIBBLE_L   0x000021       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-               RECIBIDO_X   0x00002f       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-               RECIBIDO_Y   0x00002d       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              RECIBIDO_X1   0x000030       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              RECIBIDO_X2   0x000031       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              RECIBIDO_Y1   0x00002d       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              RECIBIDO_Y2   0x00002e       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  TIEMPO_1   0x000025       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  TIEMPO_2   0x000026       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                VAR_STATUS   0x000024       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                    W_TEMP   0x000023       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      X_1   0x000032       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               X_1_ENVIAR   0x000036       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      X_2   0x000033       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               X_2_ENVIAR   0x000037       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      Y_1   0x000034       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               Y_1_ENVIAR   0x000038       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      Y_2   0x000035       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               Y_2_ENVIAR   0x000039       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
 
 
 
@@ -93,32 +116,41 @@ Linker Map File - Created Sun Oct 25 22:23:30 2020
                     EJE_X   0x000020    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                     EJE_Y   0x000026    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  TERMINAR   0x00002b    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                  COSO_TX   0x00002d    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-              ENVIAR_EJEX   0x000031    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-              ENVIAR_COMA   0x000035    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-              ENVIAR_EJEY   0x00003a    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-             ENVIAR_ENTER   0x000040    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                  COSO_RX   0x000045    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                RECIIDO_X   0x000047    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-              RECIBIDOS_Y   0x00004b    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                    TABLA   0x00004f    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                    START   0x000062    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                     LOOP   0x000069    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                 DISPLAYS   0x000074    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                 DISPLAY1   0x000078    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                 DISPLAY2   0x000083    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                CONFIG_IO   0x00008e    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-               CONFIG_OSC   0x0000a3    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-               CONFIG_ADC   0x0000a8    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-               CONFIG_TMR   0x0000b0    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-         CONFIG_INTERRUPT   0x0000ba    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-       CONFIG_SERIALSSSSS   0x0000c9    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-            CONFIG_SERIAL   0x0000df    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-         CONFIGURACION_RX   0x0000ef    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                  DELAY_1   0x0000f5    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                  CONFIG1   0x0000f7    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                  DELAY_2   0x0000fb    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                  CONFIG2   0x0000fd    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                  COSO_TX   0x00002e    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              ENVIAR_EJEX   0x000032    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                ENVIAR_X1   0x00003c    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                ENVIAR_X2   0x000040    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              ENVIAR_COMA   0x000045    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              ENVIAR_EJEY   0x00004a    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                ENVIAR_Y1   0x000056    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                ENVIAR_Y2   0x00005a    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+             ENVIAR_ENTER   0x00005f    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                  COSO_RX   0x000064    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               RECIBIDO_X   0x000066    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      RX1   0x000068    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      RX2   0x00006c    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                     COMA   0x000072    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              RECIBIDOS_Y   0x00007a    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      RY1   0x00007c    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      RY2   0x000080    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                    ENTER   0x000086    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              TABLA_ASCII   0x00008e    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                    TABLA   0x0000a1    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                    START   0x0000b4    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                     LOOP   0x0000bb    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                 DISPLAYS   0x0000c9    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                 DISPLAY1   0x0000cd    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                 DISPLAY2   0x0000d8    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                CONFIG_IO   0x0000e3    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               CONFIG_OSC   0x00010c    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               CONFIG_ADC   0x000111    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               CONFIG_TMR   0x000119    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+         CONFIG_INTERRUPT   0x000123    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+            CONFIG_SERIAL   0x000132    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                  DELAY_1   0x000148    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                  CONFIG1   0x00014a    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                  DELAY_2   0x00014e    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                  CONFIG2   0x000150    program     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  NIBBLE_H   0x000020       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  NIBBLE_L   0x000021       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  BANDERAS   0x000022       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
@@ -132,8 +164,22 @@ Linker Map File - Created Sun Oct 25 22:23:30 2020
                 DISPLAY_4   0x00002a       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                       EJE   0x00002b       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
                  ENVIAR_Y   0x00002c       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-               RECIBIDO_Y   0x00002d       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-                 ENVIAR_X   0x00002e       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
-               RECIBIDO_X   0x00002f       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              RECIBIDO_Y1   0x00002d       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              RECIBIDO_Y2   0x00002e       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                 ENVIAR_X   0x00002f       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              RECIBIDO_X1   0x000030       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+              RECIBIDO_X2   0x000031       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      X_1   0x000032       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      X_2   0x000033       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      Y_1   0x000034       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                      Y_2   0x000035       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               X_1_ENVIAR   0x000036       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               X_2_ENVIAR   0x000037       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               Y_1_ENVIAR   0x000038       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+               Y_2_ENVIAR   0x000039       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                DISPLAYX1   0x00003a       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                DISPLAYX2   0x00003b       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                DISPLAYY1   0x00003c       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
+                DISPLAYY2   0x00003d       data     static C:\Users\servi\MPLABXProjects\proyecto_2.X\proyecto2.asm
 
 
